@@ -1,0 +1,27 @@
+@mixin styleText($fs, $fw ,$color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+  }
+  
+  @mixin styleBtn($bg,$pd, $border, $radius, $ltsp, $fs, $fw ,$color , $colorHover, $bgHover) {
+    background: $bg;
+    padding: $pd;
+    border: 2px solid $border;
+    border-radius: $radius;
+    letter-spacing: $ltsp;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+    transition: all 0.3s ease-in-out;
+  
+    i {
+      margin-right: 5px;
+    }
+  
+    &:hover {
+      text-decoration: none;
+      color: $colorHover;
+      background: $bgHover;
+    }
+  }

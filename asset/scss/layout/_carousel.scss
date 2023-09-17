@@ -1,0 +1,51 @@
+.carousel {
+    background: url("/asset/image/product-header-bg.jpg") no-repeat bottom center /
+      cover;
+    padding: 200px 0;
+  
+    &__action {
+      display: flex;
+    }
+  
+    &__btn1 {
+      @include styleBtn(
+        transparent,
+        13px 44px,
+        $color-blue-2,
+        8px,
+        0.03rem,
+        14px,
+        600,
+        $color-blue-2,
+        #fff,
+        $color-blue-2,
+      );
+    }
+  
+    &__btn2 {
+      @include styleBtn(
+        linear-gradient(120deg, #60a4f4, #2a73dd),
+        15px 46px,
+        none,
+        8px,
+        0.03rem,
+        14px,
+        600,
+        #fff,
+        #fff,
+        linear-gradient(120deg, #60a4f4, #2a73dd),
+      );
+      margin-left: 10px;
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+
+    &__title {
+      @include styleText(70px,700,$color-blue-2)
+    }
+    &__subtitle {
+      @include styleText(1.6rem,600,$color-blue-3)
+    }
+  }
+  
