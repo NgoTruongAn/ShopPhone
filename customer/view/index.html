@@ -133,8 +133,27 @@
         <div class="cart__contents">
           <div class="cart__products">
             <h2>Shopping Cart</h2>
-            <p>An overview of your selected products.</p>
-            <div class="cartList" id="cartList"></div>
+            <div class="cartDetail">
+              <h3 class="w1">Product Details</h3>
+              <h3 class="w2">Quantity</h3>
+              <h3 class="w2">Price</h3>
+              <h3 class="w2">Total</h3>
+            </div>
+          </div>
+          <div class="cartList" id="cartList"></div>
+          <div class="cartFooter">
+            <button class="continueBtn
+            " type="button" onclick="cartClose()">
+            Continue Shopping
+            </button>
+            <div class="cartFooter__left">
+              <button class="removeAllBtn" type="button" id="removeAll" onclick="removeAll()">
+                Remove All
+              </button>
+              <button class="payNowBtn" type="button" id="payNow" onclick="PayNow()">
+                Pay Now
+              </button>
+            </div>
           </div>
         </div>
       </div>

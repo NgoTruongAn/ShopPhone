@@ -277,7 +277,7 @@ body {
   top: 15%;
   bottom: 0;
   left: 100%;
-  width: 500px;
+  width: 700px;
   height: 92%;
   overflow: auto;
   background-color: #fff;
@@ -287,4 +287,49 @@ body {
 
 .cart__products {
   padding: 28px;
+}
+
+.cartList {
+  height: 60%;
+}
+
+.w1 {
+  width: 40%;
+  font-size: 20px;
+}
+
+.w2 {
+  width: 20%;
+  font-size: 20px;
+}
+
+.cartDetail {
+  display: flex;
+}
+
+.cartFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.continueBtn {
+  border: none;
+  color: #6ca3f2;
+  background-color: #fff;
+  padding-left: 15px;
+}
+
+.removeAllBtn {
+  border: none;
+  background-color: #eb3131;
+  color: #fff;
+  padding: 6px 6px;
+}
+
+.payNowBtn {
+  border: none;
+  background-color: #b1b132;
+  color: #fff;
+  padding: 6px 6px;
 }/*# sourceMappingURL=main.css.map */
