@@ -79,3 +79,14 @@ function updateProductByID(id, sp) {
 //     });
 //   }
 // };
+
+// productsServ = {
+//   getProductList(name) {
+//     return axios({
+//       url: BASE_URL,
+//       method: "GET",
+//       params: {
+//         name: name || undefined,
+//       },
+//     });
+//   },

@@ -36,12 +36,9 @@
     <!-- MY CSS -->
     <link rel="stylesheet" href="/asset/css/main.css" />
     <link rel="stylesheet" href="/asset/css/modal.css" />
-
-    
   </head>
 
   <body>
-    
     <header class="header">
       <nav class="container navbar navbar-expand-lg">
         <a class="header__logo navbar-brand" href="#">Phone Shop</a>
@@ -84,9 +81,23 @@
                   id="btnThem"
                   data-toggle="modal"
                   data-target="#myModal"
+                  onclick="resetForm(), offValid()"
                 >
                   Add Phone
                 </button>
+              </div>
+            </div>
+            <div class="input-group" id="searchProduct">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Tên sản phẩm"
+                id="searchName"
+              />
+              <div class="input-group-prepend" >
+                <button type="button" class="input-group-text" id="hoverSearch" onclick="searchProductByName()"
+                  ><i class="fa fa-search"></i
+                ></button>
               </div>
             </div>
           </div>
@@ -94,8 +105,12 @@
             <table class="table table-bordered table-hover myTable">
               <thead class="text-primary">
                 <tr>
+                  <th>Id</th>
                   <th>Name</th>
-                  <th>Price</th>
+                  <th> Price
+                    <i class="fa-solid fa-arrow-up"  onclick="arrangeProductMoneyAscending()"></i>
+                    <i class="fa-solid fa-arrow-down" onclick="arrangeProductMoneyDescending()"></i>
+                  </th>
                   <th>Image</th>
                   <th>Description</th>
                   <th>Type</th>
@@ -122,8 +137,26 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-mobile-screen-button"></i></span>
+                      ><i class="fa-solid fa-barcode"></i></span>
                   </div>
+                  <input
+                    id="id"
+                    class="form-control"
+                    placeholder="Id"
+                    readonly
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbId"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-mobile-screen-button"></i
+                    ></span>
+                  </div>
+
                   <input
                     type="text"
                     name="name"
@@ -140,7 +173,8 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-dollar-sign"></i></span>
+                      ><i class="fa-solid fa-dollar-sign"></i
+                    ></span>
                   </div>
                   <input
                     type="number"
@@ -157,7 +191,8 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-mobile-screen-button"></i></span>
+                      ><i class="fa-solid fa-mobile-screen-button"></i
+                    ></span>
                   </div>
                   <input
                     type="text"
@@ -175,7 +210,8 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-camera"></i></span>
+                      ><i class="fa-solid fa-camera"></i
+                    ></span>
                   </div>
                   <input
                     type="text"
@@ -192,14 +228,15 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-camera"></i></span>
+                      ><i class="fa-solid fa-camera"></i
+                    ></span>
                   </div>
                   <input
                     type="text"
                     name="frontCamera"
                     id="frontCamera"
                     class="form-control"
-                    placeholder="front Camera"
+                    placeholder="Front Camera"
                   />
                 </div>
 
@@ -210,7 +247,8 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-link"></i></span>
+                      ><i class="fa-solid fa-link"></i
+                    ></span>
                   </div>
                   <input
                     type="text"
@@ -227,7 +265,8 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-comment"></i></span>
+                      ><i class="fa-solid fa-comment"></i
+                    ></span>
                   </div>
                   <input
                     type="text"
@@ -243,12 +282,13 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa-solid fa-code-branch"></i></span>
+                      ><i class="fa-solid fa-code-branch"></i
+                    ></span>
                   </div>
                   <select class="form-control" id="type">
-                    <option>Select Brand</option>
-                    <option>Apple</option>
-                    <option>Sam Sung</option>
+                    <option value="Select Type">Select Type</option>
+                    <option value="Iphone">Iphone</option>
+                    <option value="Samsung">Samsung</option>
                   </select>
                 </div>
 
@@ -334,22 +374,27 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    
-  <!-- AXIOS  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
-  integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- MODEL -->
-<script src="../model/Product.js"></script>
+    <!-- AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-<!-- services -->
-<script src="../services/productsServ.js"></script>
+    <!-- MODEL Product -->
+    <script src="/admin/model/Product.js"></script>
+    <!-- Validations -->
+    <script src="/util/validation.js"></script>
+    <!-- services -->
+    <script src="/admin/services/productsServ.js"></script>
 
-<!-- controllers -->
-<script src="../controller/controller.js"></script>
+    <!-- controllers -->
+    <script src="/admin/controller/controller.js"></script>
 
-<!-- MAIN  -->
-<script src="/main.js"></script>
+    <!-- MAIN  -->
+    <script src="/main.js"></script>
+
   </body>
 </html>

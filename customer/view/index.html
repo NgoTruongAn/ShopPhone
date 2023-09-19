@@ -68,6 +68,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            <li class="nav-item text-center">
+              <a class="nav-link js-toggle-cart active" role="button" aria-haspopup="true" aria-expanded="false" >
+                <div>
+                  <i class="fa-solid fa-xl fa-shopping-cart"></i>
+                  <span class="badge" id="cartCount">0</span>
+                </div>
+               Cart
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -79,10 +88,11 @@
           <div class="col-6">
             <div class="carousel__info">
               <h1 class="carousel__title">Phone Shop</h1>
-              <h3 class="carousel__subtitle">Best Smartphone of 2021!</h3>
+              <h3 class="carousel__subtitle">Best Smartphone of 2023!</h3>
               <p class="carousel__text">
-                Cras tortor mi, lobortis quis ornare in, varius scelerisque
-                urna. Vivamus imperdiet dolor nec odio convallis consequat.
+                The Phone Shop is a successful and growing business at the heart
+                of the mobile phone sector which serves diverse customers
+                through our retail.
               </p>
               <div class="carousel__action">
                 <a href="#" class="carousel__btn1"
@@ -106,34 +116,36 @@
     </section>
 
     <section class="products container">
-        <h2 class="section-title" >-Featured Products-</h2>
-        <div class="products-content">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card cardPhone"></div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card cardPhone"></div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card cardPhone"></div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card cardPhone"></div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card cardPhone"></div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card cardPhone"></div>
-                </div>
-            </div>
-        </div>
+      <h2 class="section-title">-Featured Products-</h2>
+      <select class="form-control" id="selectList" onchange="selectType()">
+        <option value="All">All type</option>
+        <option value="Iphone">Iphone</option>
+        <option value="Samsung">Samsung</option>
+      </select>
 
+      <div class="products-content">
+        <div class="row" id="row"></div>
+      </div>
     </section>
+    <div class="wrap">
+      <div class="cart is-hidden">
+        <div class="cart__overlay"></div>
+        <div class="cart__contents">
+          <div class="cart__products">
+            <h2>Shopping Cart</h2>
+            <p>An overview of your selected products.</p>
+            <div class="cartList" id="cartList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
-      <img src="/asset/image/angle-up-light.svg" alt="" class="img-fluid footer__light" />
+      <img
+        src="/asset/image/angle-up-light.svg"
+        alt=""
+        class="img-fluid footer__light"
+      />
       <div class="container">
         <div class="row align-items-center">
           <div class="col-4">@2023</div>
@@ -174,5 +186,32 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      // toggle shopping cart
+      $('.js-toggle-cart, .cart__overlay').on('click', function () {
+        $('.cart').toggleClass('is-hidden');
+      });
+    </script>
+    <!-- AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- MODEL Product -->
+    <script src="/customer/model/Product.js"></script>
+    <!-- Validations -->
+    <script src="/util/validation.js"></script>
+    <!-- services -->
+    <script src="/customer/services/productsServ.js"></script>
+
+    <!-- controllers -->
+    <script src="/customer/controller/controller.js"></script>
+
+    <!-- MAIN  -->
+    <script src="/main.js"></script>
   </body>
 </html>
