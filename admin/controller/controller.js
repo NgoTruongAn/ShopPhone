@@ -100,7 +100,7 @@ function addProduct() {
   var sp = getInfor();
   console.log("sp: ", sp);
 
-  // kiểm tra tên
+  // kiểm tra tên sản phẩm
   valid = kiemTraRong(sp.name, "#tbName", "Tên sản phẩm không được để trống !");
   //kiểm tra giá
   valid &= kiemTraSoRong(sp.price, "#tbPrice", "Giá không được để trống !");
@@ -131,7 +131,7 @@ function addProduct() {
 
   //kiểm tra mô tả
   valid &= kiemTraRong(sp.desc, "#tbDesc", "Mô tả không được để trống !");
-  //kiểm tra chức vụ
+  //kiểm tra loại sản phẩm
   valid &=
     kiemTraRong(sp.type, "#tbType", "Loại sản phẩm không được để trống !") &&
     kiemTraOption(sp.type, "#tbType", "Vui lòng chọn 1 loại sản phẩm");
